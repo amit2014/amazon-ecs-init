@@ -20,7 +20,7 @@ import (
 
 const (
 	// AgentImageName is the name of the Docker image containing the Agent
-	AgentImageName = "amazon/amazon-ecs-agent:latest"
+	DefaultAgentImageName = "amazon/amazon-ecs-agent:latest"
 
 	// AgentContainerName is the name of the Agent container started by this program
 	AgentContainerName = "ecs-agent"
@@ -42,6 +42,15 @@ const (
 var regionToS3BucketURL = map[string]string{
 	"cn-north-1":      "https://s3.cn-north-1.amazonaws.com.cn/amazon-ecs-agent/",
 	DefaultRegionName: "https://s3.amazonaws.com/amazon-ecs-agent/",
+}
+
+// AgentImageName returns the ECS agent image name as configured in the config file, or the default value of DefaultAgentImageName
+func AgentImageName() string {
+	agent := os.Getenv("ECS_AGENT_IMAGE_NAME")
+	if agent != "" {
+		return agent
+	}
+	return DefaultAgentImageName
 }
 
 // AgentConfigDirectory returns the location on disk for configuration
