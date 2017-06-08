@@ -24,4 +24,4 @@ var Version string = "1.14.2"
 var GitDirty string = "true"
 
 // GitShortHash is the short hash of this ecs-init build
-var GitShortHash string = "54ce0b6"
+var GitShortHash string = "8b3ccd1"

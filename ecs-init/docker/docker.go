@@ -183,9 +183,8 @@ func (c *Client) getContainerConfig() *godocker.Config {
 	}
 
 	return &godocker.Config{
-		Env:          env,
-		ExposedPorts: exposedPorts,
-		Image:        config.AgentImageName(),
+		Env:   env,
+		Image: config.AgentImageName(),
 	}
 }
 

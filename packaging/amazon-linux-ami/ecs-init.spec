@@ -14,7 +14,7 @@
 
 Name:           ecs-init
 Version:        1.14.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Group:          System Environment/Base
 Vendor:         Amazon.com
 License:        Apache 2.0
@@ -48,6 +48,7 @@ Provides:       bundled(golang-logrus)
 Provides:       bundled(golang(github.com/Sirupsen/logrus))
 Provides:       bundled(golang(github.com/cihub/seelog))
 
+%define debug_package %{nil}
 %global init_dir %{_sysconfdir}/init
 %global bin_dir %{_libexecdir}
 %global	conf_dir %{_sysconfdir}/ecs
